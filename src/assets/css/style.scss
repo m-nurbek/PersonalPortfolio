@@ -138,6 +138,7 @@ nav {
 main {
     position: relative;
     display: grid;
+    height: 85vh;
     grid-template-columns: 1fr 1fr;
     font-family: $font1;
     z-index: 10;
@@ -190,6 +191,22 @@ main {
         color: $accent_color2;
         font-size: 0.75em;
         margin: 2em 0 4em;
+
+        .highlight {
+            color: $accent_color;
+            position: relative;
+            
+            &::after {
+                content: "";
+                position: absolute;
+                height: 4px;
+                width: 100%;
+                left:0;
+                bottom:-3px;
+                border-radius: 10px;
+                background-color: $accent_color;
+            }
+        }
     }
 
     button, input[type="submit"], input[type="reset"] {
@@ -211,7 +228,7 @@ main {
         }
 
         &::after {
-            background: lighten($main_color, 20%);
+            background: lighten($main_color, 50%);
             content: "";
             height: 155px;
             left: -80px;
@@ -226,6 +243,8 @@ main {
         &:hover {
             outline-offset: 0.1em;
             transition: all 200ms linear;
+
+            color: $accent_color;
         }
 
         &:hover::after {
@@ -304,6 +323,7 @@ main {
     border-radius: 40px;
     display: grid;
     grid-template-rows: 2fr 1fr 1fr;
+    font-size: 1em;
 
     padding: 1.2em 1.2em;
     outline: solid $accent_color4 1px;
@@ -331,11 +351,40 @@ main {
         border-radius: 30px;
         background-color: #4158D0;
         background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-        box-shadow: 0 0 35px 1px #c850c07e;
+        box-shadow: 0px 0px 40px 0 #c850c07e;
 
         svg {
             font-size: calc($width/6);
         }
+        img {
+            width: calc($width/3);
+            object-fit: cover;
+        }
+    }
+
+    .perfeCover {
+        background-image: url(/public/Twitch.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        box-shadow: 0px 0px 40px 0 #5f3d9fcb;
+    }
+    .academicaCover {
+        background-image: url(/public/Bright\ Vault.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        box-shadow: 0px 0px 40px 0 #0eccf6be
+    }
+    .fmaCover {
+        background-image: url(/public/Nighthawk.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        box-shadow: 0px 0px 40px 0 #297bb2cb;
+    }
+    .astanahubCover {
+        background-image: url(/public/Suzy.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        box-shadow: 0px 0px 40px 0 #bf4dc9c4;
     }
 
     .caption {
@@ -373,12 +422,55 @@ main {
         font-size: calc($width/15.71);
         font-weight: 500;
     }
+
+    @media (max-width: 700px) {
+        width: 15em;
+        height: calc(15em * 1.15);
+
+        .cover {
+            height: calc(15em / 2);
+            width: calc(15em - 2.4em);
+    
+            svg {
+                font-size: calc(15em/6);
+            }
+            img {
+                width: calc(15em/4);
+            }
+        }
+        .caption {
+            gap: 0;
+        }
+    }
+
+    @media (max-width: 500px) {
+        width: 18em;
+        height: calc(18em * 1);
+        font-size: 1.3em;
+
+        .cover {
+            height: calc(15em / 2);
+            width: calc(18em - 2.4em);
+    
+            svg {
+                font-size: calc(15em/6);
+            }
+            img {
+                width: calc(15em/4);
+            }
+        }
+        .caption {
+            max-width: 18em;
+            gap: 4em;
+        }
+    }
 }
 
 
 
 .cards_wrapper {
     $gap: 2.6em;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
@@ -396,15 +488,33 @@ main {
     .cards_wrapper_column:nth-child(even) {
         padding-top: $gap;
     }
+
+    @media (max-width: 900px) {
+        gap: 1.4em;
+
+        .cards_wrapper_column {
+            gap: 1.4em;
+        }
+    }
+   
+
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+
+        .cards_wrapper_column:nth-child(even) {
+            padding-top: 0;
+        }
+    }
 }
 
 
 .top_curves {
     transform: rotate(-45deg) scale(1);
     position: absolute;
-    top: -500px;
-    right: -600px;
+    top: -50vh;
+    right: -50vw;
     z-index: -1;
+    height: auto;
 }
 
 .bottom_curves {
@@ -548,10 +658,33 @@ main {
             } 
         }
 
+        @keyframes footerAnimation {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
         &:hover {
+            cursor: pointer;
             &::before {
                 content: "😁";
             }
+
+            &::after {
+                animation: footerAnimation 1s ease forwards;
+            }
+        }
+        &::after {
+            position: absolute;
+            content: "";
+            background-color: $accent_color;
+            border-radius: 20px;
+            height: 4px;
+            bottom:-5px;
+            left:0;
         }
     }
 }

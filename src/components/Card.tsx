@@ -13,10 +13,11 @@ interface Props {
 
 function Card({children, cover, h1, p, year, className} : Props) {
     const classStr = className ? ' ' + className : '';
+    const coverClass = cover ? cover + " cover" : "cover";
     return (
     <>
         <div className={'card' + classStr}>
-            <div className={cover ? cover : "cover"}>{children ? children : <GithubSVG />}</div>
+            <div className={coverClass}>{children ? children : <GithubSVG />}</div>
             <h1>{h1 ? h1 : "instagram 📸"}</h1>
             <div className="caption">
                 <p style={{whiteSpace: "wrap", width: "fit-content"}}>{p ? p :"Senior product designer"}</p>

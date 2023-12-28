@@ -33,9 +33,9 @@ function Main() {
             </animated.div>
             <div className='info'>
                 <animated.div style={window.innerWidth > 1400 ? {transform: props.xy.interpolate((x, y) => `perspective(600px) rotateX(${-y}deg) rotateY(${x}deg)`)}: {}}>
-                <h2>Hi👋 i'm</h2>
+                <h2>Hi👋 I'm</h2>
                 <h1 style={{whiteSpace: "nowrap"}}>Nurbek Malikov</h1>
-                <p>Crafting the unseen architecture of innovation as a backend developer at a dynamic startup</p>
+                <p>Crafting the unseen architecture of innovation as a<br/><span className='highlight'>backend developer</span> at a dynamic startup</p>
                 <button>Get in touch</button>
                 </animated.div>
             </div>

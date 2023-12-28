@@ -1,7 +1,7 @@
 import { TypeAnimation } from "react-type-animation";
-import UniPhotoPng from "../../public/uni_photo.jpg";
-import LabPhotoJPG from "../../public/lab_photo.jpg";
-import StartupPhotoJPG from "../../public/startup_photo.jpg";
+import UniPhotoPng from "/uni_photo.jpg";
+import LabPhotoJPG from "/lab_photo.jpg";
+import StartupPhotoJPG from "/startup_photo.jpg";
 import { useEffect, useRef, useState} from "react";
 
 
