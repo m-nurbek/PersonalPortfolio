@@ -19,7 +19,7 @@ function WorkExperience() {
                     </Card>
                 </div>
                 <div className="cards_wrapper_column">
-                    <Card h1="financial Monitoring Agency" p="AFM backend intern" year="now" cover="fmaCover">
+                    <Card h1="financial monitoring agency" p="AFM backend intern" year="now" cover="fmaCover">
                         <img src={FMALogo} alt="FMA Logo" />
                     </Card>
                     <Card h1="astana hub" p="“Digital Bridge” intern" year="2022" cover="astanahubCover">
