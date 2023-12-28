@@ -1,5 +1,5 @@
 import { animated, useSpring } from "react-spring";
-import Photo from "../assets/img/photo.png";
+import Photo from "../../public/photo.png";
 import { useEffect, useState } from "react";
 
 function Main() {
