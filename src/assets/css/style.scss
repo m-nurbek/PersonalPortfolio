@@ -91,6 +91,15 @@ nav {
     margin: 0 1em;
 
     z-index: 1000;
+
+    @media (max-width: 500px) {
+        margin: 0 0.2em;
+        font-size: 1.2em;
+    }
+
+    @media (max-width: 330px) {
+        font-size: 1.6em;
+    }
     
     
     p, ul {
@@ -148,7 +157,14 @@ main {
         justify-content: center;
         align-items: center;
     }
-    
+
+    @media (max-width: 500px) {
+        height: 30vh;
+        font-size: 1.07em;
+    }
+    @media (max-width: 330px) {
+        font-size: 1.2em;
+    }
 
     .photo {
         width: clamp(15em, calc(100% - 2em), 100%);
@@ -168,6 +184,9 @@ main {
 
         @media (max-width: 900px) {
             padding: 3em 1.5em;
+        }
+        @media (max-width: 500px) {
+            padding: 0 1em;
         }
     }
 
@@ -240,24 +259,32 @@ main {
             width: 60px;
         }
 
-        &:hover {
-            outline-offset: 0.1em;
-            transition: all 200ms linear;
+        @media (hover: hover) {
+            &:hover {
+                outline-offset: 0.1em;
+                transition: all 200ms linear;
 
-            color: $accent_color;
-        }
-
-        &:hover::after {
-            left: 120%;
-            transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+                color: $accent_color;
+            }
+            &:hover::after {
+                left: 120%;
+                transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+            }
         }
 
         @media (max-width: 1400px) {
             &:hover:after { display: none; }
             &::after {display: none;}
-            &:hover {
-                background-color: lighten($main_color, 10%);
+
+            @media (hover: none) and (pointer: coarse) {
+                &:active {
+                    transition: all 200ms linear;
+                    color: $accent_color;
+                    background-color: lighten($main_color, 10%);
+                }
             }
+            
+
         }
     }    
 }
@@ -653,7 +680,7 @@ main {
                 top: -8px;
             } 
             @media (max-width: 390px) {
-                left: -25px;
+                left: -32px;
                 top: -4px;
             } 
         }
